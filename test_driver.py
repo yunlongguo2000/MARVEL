@@ -1,3 +1,23 @@
+"""
+Runs distributed testing for a multi-agent exploration policy using Ray.
+
+This function initializes a distributed testing framework where multiple meta-agents 
+run test episodes with varying parameters such as number of agents, field of view, 
+and sensor range. It collects and aggregates performance metrics across different 
+test configurations.
+
+Key operations:
+- Loads a pre-trained policy network
+- Distributes test jobs across multiple Ray workers
+- Runs tests with different experimental parameters
+- Collects and prints performance metrics including:
+  - Travel distance
+  - Exploration rate
+  - Success rate
+  - Overlap ratio
+
+The function supports GPU acceleration and allows configurable testing parameters.
+"""
 import ray
 import numpy as np
 import torch

@@ -1,3 +1,17 @@
+"""
+Manages nodes in a quadtree-based spatial graph for exploration and frontier tracking.
+
+This class handles the creation, updating, and management of nodes representing 
+spatial locations during exploration. It supports tracking observable frontiers, 
+calculating node utilities, managing neighbor relationships, and performing 
+pathfinding algorithms like Dijkstra and A* on the node graph.
+
+Key functionalities:
+- Add, remove, and update nodes in a quadtree data structure
+- Calculate node utilities based on observable frontiers
+- Manage neighbor node connections
+- Perform graph-based pathfinding algorithms
+"""
 import time
 
 import numpy as np

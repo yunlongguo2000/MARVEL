@@ -1,3 +1,20 @@
+"""
+Represents the environment.
+
+This class manages the simulation environment, including ground truth map loading, 
+robot belief tracking, sensor simulation, and exploration metrics.
+
+Attributes:
+    episode_index (int): Index of the current simulation episode.
+    ground_truth (numpy.ndarray): Binary map representing the true environment.
+    robot_belief (numpy.ndarray): Map representing the robots' current belief about the environment.
+    robot_locations (numpy.ndarray): Current locations of all robots in the environment.
+    sensor_range (float): Maximum sensing distance for robots in meters.
+    explored_rate (float): Percentage of the environment that has been explored.
+
+Methods handle key simulation operations like updating robot locations, calculating rewards, 
+checking exploration completion, and creating sensing masks for robots.
+"""
 import os
 import matplotlib.pyplot as plt
 from skimage import io

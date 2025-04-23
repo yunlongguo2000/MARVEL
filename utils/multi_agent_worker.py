@@ -1,3 +1,25 @@
+"""
+A multi-agent worker class for coordinating multi-robots exploration in an indoor environment.
+
+This class manages a group of agents performing collaborative exploration, handling 
+their movement, observation, reward calculation, and simulation steps. It supports 
+features like collision avoidance, trajectory planning, and performance tracking.
+
+Key functionalities:
+- Initializes multiple agents with a shared policy network
+- Runs exploration episodes with collision resolution
+- Tracks agent locations, headings, and exploration progress
+- Generates visualizations of the exploration process
+- Calculates rewards and saves episode data
+
+Attributes:
+    meta_agent_id (int): Identifier for the meta-agent group
+    global_step (int): Current global simulation step
+    env (Env): Environment simulation instance
+    robot_list (List[Agent]): List of agents in the exploration team
+    episode_buffer (List): Buffer for storing episode data
+    perf_metrics (dict): Performance metrics for the episode
+"""
 import matplotlib.pyplot as plt
 from copy import deepcopy
 from matplotlib.patches import Wedge, FancyArrowPatch
@@ -9,7 +31,6 @@ from utils.node_manager import NodeManager
 from utils.ground_truth_node_manager import GroundTruthNodeManager
 from utils.model import PolicyNet
 from utils.motion_model import compute_allowable_heading  
-import time
 
 if not os.path.exists(gifs_path):
     os.makedirs(gifs_path)

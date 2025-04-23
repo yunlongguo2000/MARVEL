@@ -1,3 +1,23 @@
+"""
+Main driver script for training MARVEL.
+
+This script initializes and manages a distributed training process using Ray, 
+implementing a Soft Actor-Critic (SAC) algorithm with multiple meta agents. 
+Key functionalities include:
+- Initializing neural networks for policy and Q-value estimation
+- Setting up distributed training with multiple workers
+- Managing experience replay buffer
+- Performing training iterations 
+- Logging metrics and saving model checkpoints
+
+The main training loop handles:
+- Collecting experiences from distributed workers
+- Sampling and training on batches of experiences
+- Updating policy, Q-networks, and temperature parameter
+- Periodic model checkpointing and performance logging
+
+Supports GPU/CPU training, WandB logging, and model resumption.
+"""
 import torch
 import torch.optim as optim
 import torch.nn as nn

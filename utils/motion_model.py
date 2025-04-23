@@ -1,3 +1,21 @@
+"""
+Compute the allowable heading for a drone given its current state and desired trajectory.
+
+This function determines the achievable heading change based on the drone's current position,
+final position, current heading, desired heading, current velocity, and maximum yaw rate.
+
+Args:
+    current_position (numpy.ndarray): Current (x, y) coordinates of the drone.
+    final_position (numpy.ndarray): Target (x, y) coordinates of the drone.
+    theta_current (float): Current heading angle in degrees.
+    theta_desired (float): Desired heading angle in degrees.
+    v_current (float): Current velocity of the drone.
+    omega_max (float): Maximum yaw rate in degrees per second.
+
+Returns:
+    float: The achievable heading angle in the range [0, 360) degrees, 
+           considering the drone's kinematic constraints.
+"""
 import math
 import numpy as np
 

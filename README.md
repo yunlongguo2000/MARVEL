@@ -22,7 +22,7 @@ conda activate marvel
 
 ## Evaluation
 
-First, set the appropriate parameters in `test_parameter.py` and run `test_driver.py` to evaluate.
+First, set the appropriate parameters in `test_parameter.py` and adjust testing configurations within `test_driver.py`. Run `test_driver.py` to evaluate.
 
 ## Training
 

@@ -1,3 +1,21 @@
+"""
+A runner class for managing multi-agent reinforcement learning episodes using Ray distributed computing.
+
+This class handles the initialization, weight management, and episode execution for a meta-agent 
+in a distributed reinforcement learning setup. It supports GPU and CPU configurations and 
+interfaces with a policy network and multi-agent worker.
+
+Attributes:
+    meta_agent_id (int): Unique identifier for the meta-agent.
+    device (torch.device): Computational device (GPU or CPU) for running the network.
+    network (PolicyNet): Neural network for policy learning.
+
+Methods:
+    get_weights(): Retrieves the current policy network weights.
+    set_policy_net_weights(weights): Updates the policy network with given weights.
+    do_job(episode_number): Runs a single episode for the meta-agent.
+    job(weights_set, episode_number): Executes an episode with specified weights.
+"""
 import torch
 import ray
 from utils.model import PolicyNet

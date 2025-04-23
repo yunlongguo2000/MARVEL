@@ -1,3 +1,23 @@
+"""
+Agent class for multi-robot exploration using a policy network.
+
+This class manages an individual agent's state, movement and mapping in a multi-robot exploration environment. It handles key functionalities 
+such as:
+- Tracking agent location, heading, and travel distance
+- Updating map and frontier information
+- Managing graph-based exploration
+- Generating observations for policy network
+- Selecting next waypoints
+- Saving episode data for learning
+
+Attributes:
+    id (int): Unique identifier for the agent
+    policy_net (torch.nn.Module): Neural network for action selection
+    location (np.ndarray): Current agent location
+    heading (float): Current agent heading in degrees
+    sensor_range (float): Maximum sensing range of the agent
+    node_manager (NodeManager): Manages graph nodes 
+"""
 import copy
 import time
 import torch

@@ -1,3 +1,22 @@
+"""
+Configuration parameters for MARVEL simulation and training.
+
+This module defines key parameters for:
+- Folder and path configurations
+- Simulation settings
+- Drone and sensor characteristics 
+- Map representation
+- Training hyperparameters
+- Neural network architecture
+- Computational resource settings
+
+Key configurations include:
+- Number of agents
+- Sensor ranges
+- Map resolution
+- Episode and training parameters
+- GPU and logging options
+"""
 
 FOLDER_NAME = 'test_2'
 LOAD_FOLDER_NAME = 'joint_action_5_9_GT_MAAC'

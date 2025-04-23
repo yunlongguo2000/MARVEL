@@ -1,3 +1,25 @@
+"""
+Manages ground truth nodes for exploration and mapping in a robotic environment.
+
+This class handles the creation, tracking, and management of nodes representing
+the ground truth map, and operations like node generation, utility calculation,
+and path planning.
+
+Attributes:
+    nodes_dict (QuadTree): A quadtree data structure storing ground truth nodes
+    node_manager (object): Manages the current state of nodes
+    ground_truth_map_info (object): Contains information about the ground truth map
+    sensor_range (float): Maximum sensing range of the robot
+    device (str): Computational device for tensor operations
+    plot (bool): Flag to enable plotting of ground truth environment
+
+Key Methods:
+    initialize_graph(): Creates initial nodes based on ground truth map
+    update_graph(): Updates node information from node manager
+    get_ground_truth_observation(): Generates observation data for nodes
+    Dijkstra(): Computes shortest paths between nodes
+    a_star(): Finds optimal path between two nodes
+"""
 import time
 import torch
 
