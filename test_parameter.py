@@ -12,7 +12,7 @@ This file defines various parameters for:
 
 """
 TEST_SET = 'maps_test'
-LOAD_FOLDER_NAME = 'marvel'
+LOAD_FOLDER_NAME = 'MARVEL'
 load_path = f'load_model/{LOAD_FOLDER_NAME}'
 gifs_path = f'results/gifs/{LOAD_FOLDER_NAME}'
 LOAD_MODEL = True  
