@@ -20,7 +20,7 @@ SAVE_IMG_GAP = 50
 SAVE_GIFS = True
 GREEDY = True
 NUM_RUN = 1
-NUM_TEST = 100
+NUM_TEST = 1
 
 # Sim parameters
 USE_CONTINUOUS_SIM = True
@@ -50,7 +50,7 @@ MIN_UTILITY = 1
 UPDATING_MAP_SIZE = 15 * NODE_RESOLUTION
 
 # Testing parameters
-NUM_META_AGENT = 10
+NUM_META_AGENT = 1
 INITIAL_EXPLORED_RATE = 0.90
 
 # Network parameters
@@ -62,5 +62,5 @@ NUM_NODE_NEIGHBORS = 5
 K_SIZE = NUM_NODE_NEIGHBORS**2   # the number of neighboring nodes
 
 # GPU usage
-USE_GPU = False  
-NUM_GPU = 0
+USE_GPU = False 
+NUM_GPU = 1

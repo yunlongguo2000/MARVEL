@@ -34,7 +34,7 @@ def run_test():
     global_network = PolicyNet(NODE_INPUT_DIM, EMBEDDING_DIM, NUM_ANGLES_BIN).to(device)
 
     if device == 'cuda':
-        checkpoint = torch.load(f'{load_path}/checkpoint.pth')
+        checkpoint = torch.load(f'{load_path}/checkpoint.pth', map_location=torch.device('cuda'))
     else:
         checkpoint = torch.load(f'{load_path}/checkpoint.pth', map_location=torch.device('cpu'))
 
