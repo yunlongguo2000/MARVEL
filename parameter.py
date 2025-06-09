@@ -27,7 +27,7 @@ gifs_path = f'gifs/{FOLDER_NAME}'
 
 # save training data
 SUMMARY_WINDOW = 32
-LOAD_MODEL = True  # do you want to load the model trained before
+LOAD_MODEL = False  # do you want to load the model trained before
 SAVE_IMG_GAP = 1000
 NUM_EPISODE_BUFFER = 40
 
@@ -71,7 +71,7 @@ MINIMUM_BUFFER_SIZE = 2000
 BATCH_SIZE = 256
 LR = 1e-5
 GAMMA = 1
-NUM_META_AGENT = 18
+NUM_META_AGENT = 2
 
 # network parameters
 NODE_INPUT_DIM = 6
@@ -83,7 +83,7 @@ K_SIZE = NUM_NODE_NEIGHBORS**2   # the number of neighboring nodes
 NODE_PADDING_SIZE = 360  # the number of nodes will be padded to this value
 
 # GPU usage
-USE_GPU = False  # do you want to collect training data using GPUs
+USE_GPU = True  # do you want to collect training data using GPUs
 USE_GPU_GLOBAL = True  # do you want to train the network using GPUs
 NUM_GPU = 1
 

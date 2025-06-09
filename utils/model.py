@@ -251,25 +251,29 @@ class PolicyNet(nn.Module):
         num_best_headings = neighbor_best_headings.size()[2]
         current_state_feature = self.current_embedding(torch.cat((enhanced_current_node_feature,
                                                                   current_node_feature), dim=-1))
-
+    
+        # 确保 current_edge 和 enhanced_node_feature 在同一设备
+        device = enhanced_node_feature.device
+        current_edge = current_edge.to(device)
+    
         neighboring_feature = torch.gather(enhanced_node_feature, 1,
                                            current_edge.repeat(1, 1, embedding_dim))     
-
+    
         enhanced_neighbor_best_headings = self.best_headings_embedding(neighbor_best_headings)  
         all_headings_visited = self.visited_headings_embedding(headings_visited)              
         all_neighbor_headings_visited = torch.gather(all_headings_visited, 1,
                                            current_edge.repeat(1, 1, embedding_dim))         
-
+    
         neighboring_nodes_feature = neighboring_feature.unsqueeze(2).repeat(1, 1, num_best_headings, 1)                
         neighbor_headings_visited = all_neighbor_headings_visited.unsqueeze(2).repeat(1, 1, num_best_headings, 1)       
-
+    
         enhanced_neighbor_features = self.neighboring_node_embedding(torch.cat((neighboring_nodes_feature, neighbor_headings_visited,
                                                                                 enhanced_neighbor_best_headings), dim=-1)).reshape(batch_size, -1, embedding_dim)      
      
         current_mask = edge_padding_mask.unsqueeze(-1).repeat(1, 1, 1, num_best_headings).reshape(batch_size, 1, -1)
         logp = self.pointer(current_state_feature, enhanced_neighbor_features, current_mask)
         logp = logp.squeeze(1)
-
+    
         return logp
 
     def forward(self, node_inputs, node_padding_mask, edge_mask, current_index,
